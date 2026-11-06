@@ -1,0 +1,121 @@
+.landing {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(1rem, 3vw, 2rem) var(--gutter);
+  overflow: hidden;
+}
+
+.landing__numerals {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.16em;
+  font-size: clamp(9rem, 34vw, 30rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(169, 133, 82, 0.28);
+  pointer-events: none;
+  user-select: none;
+  line-height: 0.8;
+}
+.landing__numerals .italic {
+  -webkit-text-stroke: 1px rgba(115, 122, 76, 0.22);
+}
+
+.landing__route {
+  position: absolute;
+  inset: 8% 4%;
+  width: 92%;
+  height: 84%;
+  pointer-events: none;
+}
+.landing__route path {
+  fill: none;
+  stroke: rgba(115, 122, 76, 0.28);
+  stroke-width: 1;
+  stroke-dasharray: 2 7;
+  vector-effect: non-scaling-stroke;
+}
+.landing__route circle {
+  fill: rgba(169, 133, 82, 0.45);
+}
+
+.landing__header,
+.landing__footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.landing__mark {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.landing__monogram {
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.landing__monogram .gold {
+  font-size: 0.8em;
+  margin: 0 0.1em;
+}
+.landing__corr {
+  display: none;
+}
+
+.landing__center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vh, 1.5rem);
+  padding: 2vh 0;
+}
+
+.landing__hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+.landing__hint-main {
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+.landing__hint-line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(var(--gold), transparent);
+  transform-origin: top;
+  animation: hint-line 2.8s var(--ease-in-out) infinite;
+}
+@keyframes hint-line {
+  0% { transform: scaleY(0); opacity: 0; }
+  40% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(10px); opacity: 0; }
+}
+
+@media (min-width: 720px) {
+  .landing__corr {
+    display: inline;
+  }
+}
+
+@media (max-width: 520px) {
+  .landing__footer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .landing__footer .label {
+    font-size: 0.58rem;
+  }
+}

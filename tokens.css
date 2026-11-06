@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — the whole palette & type system lives here.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Mediterranean summer */
+  --ivory: #f7f1e6;
+  --paper: #fbf7ef;
+  --champagne: #ecdfc6;
+  --champagne-deep: #dcc8a4;
+  --olive: #737a4c;
+  --olive-soft: #a5a782;
+  --gold: #a98552;
+  --gold-soft: #cdb386;
+
+  /* Enchanted forest */
+  --forest: #24382c;
+  --forest-deep: #17241c;
+  --moss: #3e5442;
+
+  /* Ink */
+  --ink: #2a2922;
+  --ink-soft: #625d50;
+  --rule: rgba(42, 41, 34, 0.16);
+
+  /* Type */
+  --font-display: 'Cormorant Garamond', 'Cormorant', 'Times New Roman', serif;
+  --font-sans: 'Jost', 'Helvetica Neue', system-ui, sans-serif;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --max: 1280px;
+
+  /* Paper grain (inline SVG noise) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .24 0 0 0 0 .2 0 0 0 0 .13 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

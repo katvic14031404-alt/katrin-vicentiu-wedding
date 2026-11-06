@@ -1,0 +1,99 @@
+/* ── Gold burst ───────────────────────────────────────────── */
+.burst {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+.burst__p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  background: var(--c);
+  will-change: transform, opacity;
+}
+.burst__p--foil {
+  border-radius: 1px;
+  background: linear-gradient(120deg, var(--c), #fff7e0 45%, var(--c));
+  box-shadow: 0 0 4px rgba(232, 210, 156, 0.6);
+}
+.burst__p--dot {
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--c);
+}
+.burst__p--star {
+  background: radial-gradient(circle, #fffaf0 0 18%, var(--c) 30%, transparent 62%);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  filter: drop-shadow(0 0 3px rgba(243, 226, 179, 0.9));
+}
+
+/* ── Gust ─────────────────────────────────────────────────── */
+.gust {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+.gust__streaks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.gust__streaks path {
+  fill: none;
+  stroke: rgba(169, 133, 82, 0.55);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.gust__p {
+  position: absolute;
+  will-change: transform, opacity;
+}
+.gust__p--petal {
+  width: 12px;
+  height: 8px;
+  border-radius: 60% 40% 60% 40%;
+  background: linear-gradient(135deg, #fffaf0, #eadfc8);
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.15);
+}
+.gust__p--fleck {
+  width: 5px;
+  height: 3px;
+  background: linear-gradient(120deg, #b8914f, #f3e2b3, #b8914f);
+  box-shadow: 0 0 5px rgba(232, 210, 156, 0.8);
+}
+
+/* ── Motes ────────────────────────────────────────────────── */
+.motes {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.motes__m {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff6dc, #d9bd83 60%, transparent 70%);
+  box-shadow: 0 0 6px rgba(217, 189, 131, 0.7);
+  opacity: 0;
+  animation-name: mote-float, mote-twinkle;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+}
+@keyframes mote-float {
+  0% { transform: translate3d(0, 20px, 0); }
+  50% { transform: translate3d(var(--dx), -60px, 0); }
+  100% { transform: translate3d(0, -140px, 0); }
+}
+@keyframes mote-twinkle {
+  0% { opacity: 0; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.15; }
+}

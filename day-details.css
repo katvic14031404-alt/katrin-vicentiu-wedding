@@ -1,0 +1,246 @@
+/* ── Festive date ─────────────────────────────────────────── */
+.fdate {
+  position: relative;
+  margin: 2rem auto 0;
+  padding: 1.4rem 0 1.2rem;
+  max-width: 560px;
+}
+.fdate__weekday {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--olive);
+}
+.fdate__weekday i {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+.fdate__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.2rem, 1.5vw, 0.8rem);
+  margin-top: 0.4rem;
+}
+.fdate__laurel {
+  flex: none;
+  width: clamp(30px, 6vw, 46px);
+  height: clamp(66px, 13vw, 100px);
+}
+.fdate__laurel--l {
+  transform: rotate(-24deg);
+}
+.fdate__laurel--r {
+  transform: rotate(24deg) scaleX(-1);
+}
+.fdate__main {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 0.28em;
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1;
+  font-size: clamp(2.5rem, 8.4vw, 4.4rem);
+}
+.fdate__day {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.35em;
+  padding: 0 0.04em;
+}
+.fdate__month {
+  font-weight: 400;
+  padding: 0 0.06em 0.08em;
+}
+.fdate__year {
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+}
+.fdate__ribbon {
+  display: block;
+  margin: 0.9rem auto 0;
+  width: min(70%, 320px);
+  height: 7px;
+  background:
+    radial-gradient(circle, var(--gold) 0 2.2px, transparent 2.6px) center / 10px 7px no-repeat,
+    linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 44%, transparent 44%, transparent 56%, var(--gold) 56%, var(--gold) 80%, transparent) center / 100% 1px no-repeat;
+}
+
+.twinkle {
+  position: absolute;
+  background: radial-gradient(circle, #fffaf0 0 15%, #d9bd83 32%, transparent 62%);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  animation: twinkle 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes twinkle {
+  0%, 100% { transform: scale(0.3) rotate(0deg); opacity: 0.2; }
+  50% { transform: scale(1) rotate(45deg); opacity: 1; }
+}
+
+/* ── Forest venue ─────────────────────────────────────────── */
+.forest {
+  margin: 2.4rem auto 0;
+  max-width: 600px;
+}
+.forest__frame {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  /* soft watercolour edges melting into the paper */
+  -webkit-mask-image: radial-gradient(72% 70% at 50% 52%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(72% 70% at 50% 52%, #000 58%, transparent 100%);
+}
+.forest__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: forest-drift 26s ease-in-out infinite alternate;
+}
+@keyframes forest-drift {
+  from { object-position: 50% 50%; transform: scale(1); }
+  to { object-position: 50% 46%; transform: scale(1.05); }
+}
+.forest__ray {
+  position: absolute;
+  inset: -20% 30% 10% 30%;
+  background: linear-gradient(200deg, rgba(255, 244, 205, 0.55), rgba(255, 244, 205, 0) 60%);
+  transform: skewX(-14deg);
+  mix-blend-mode: screen;
+  animation: ray 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes ray {
+  from { opacity: 0.25; transform: skewX(-14deg) translateX(-6%); }
+  to { opacity: 0.75; transform: skewX(-10deg) translateX(6%); }
+}
+.forest__firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff3c4;
+  box-shadow: 0 0 6px 2px rgba(255, 220, 140, 0.85);
+  animation: firefly 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes firefly {
+  0%, 100% { opacity: 0.05; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(4px, -6px); }
+}
+.forest__name {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  line-height: 1.05;
+  color: var(--forest);
+}
+.forest__place {
+  margin: 0.4rem 0 0;
+  color: var(--olive);
+  letter-spacing: 0.4em;
+}
+
+/* ── Programme ────────────────────────────────────────────── */
+.programme {
+  margin: 2.4rem auto 0;
+  max-width: 520px;
+}
+.programme__items {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(1rem, 5vw, 2.6rem);
+}
+.programme__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+.programme__icon {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.programme__time {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 6.5vw, 3rem);
+  line-height: 1;
+}
+.programme__label {
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.programme__divider {
+  width: 1px;
+  background: linear-gradient(transparent, var(--gold), transparent);
+}
+.programme__shuttle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.6rem auto 0;
+  max-width: 40ch;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: left;
+}
+.programme__bus {
+  flex: none;
+  width: 24px;
+  height: 16px;
+  fill: none;
+  stroke: var(--olive);
+  stroke-width: 1.1;
+}
+
+/* ── Godparents ───────────────────────────────────────────── */
+.godparents {
+  margin: 2.8rem auto 0;
+  padding: 1.4rem 1rem;
+  max-width: 560px;
+  border-top: 1px solid rgba(169, 133, 82, 0.45);
+  border-bottom: 1px solid rgba(169, 133, 82, 0.45);
+}
+.godparents__label {
+  color: var(--olive);
+}
+.godparents__names {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 5.4vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.godparents__names span {
+  white-space: nowrap;
+}
+.godparents__amp {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+@media (max-width: 560px) {
+  .programme__shuttle {
+    font-size: 0.74rem;
+  }
+}

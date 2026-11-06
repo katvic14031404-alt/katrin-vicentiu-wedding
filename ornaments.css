@@ -1,0 +1,60 @@
+/* ── Stamp ────────────────────────────────────────────────── */
+.stamp-wrap {
+  display: inline-block;
+  filter: drop-shadow(0 1px 1px rgba(40, 30, 10, 0.18)) drop-shadow(0 4px 8px rgba(40, 30, 10, 0.08));
+}
+
+.stamp {
+  --r: 3.2px;
+  --stamp-ink: var(--olive);
+  --stamp-paper: #f4ecdb;
+  width: var(--stamp-w, 86px);
+  aspect-ratio: 0.82;
+  padding: calc(var(--r) * 2.2);
+  background: var(--stamp-paper);
+  -webkit-mask:
+    radial-gradient(var(--r), #0000 97%, #000) round calc(-1.5 * var(--r)) calc(-1.5 * var(--r)) / calc(3 * var(--r)) calc(3 * var(--r)),
+    linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 3 * var(--r)) calc(100% - 3 * var(--r));
+  mask:
+    radial-gradient(var(--r), #0000 97%, #000) round calc(-1.5 * var(--r)) calc(-1.5 * var(--r)) / calc(3 * var(--r)) calc(3 * var(--r)),
+    linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 3 * var(--r)) calc(100% - 3 * var(--r));
+}
+
+.stamp--olive { --stamp-ink: #5f6a3e; --stamp-paper: #efe9d3; }
+.stamp--forest { --stamp-ink: #24382c; --stamp-paper: #e9e6d6; }
+.stamp--gold { --stamp-ink: #8c6a3a; --stamp-paper: #f3e8d2; }
+
+.stamp__inner {
+  position: relative;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--stamp-ink) 70%, transparent);
+  outline: 0.5px solid color-mix(in srgb, var(--stamp-ink) 35%, transparent);
+  outline-offset: -4px;
+  color: var(--stamp-ink);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 6% 6% 7%;
+  background:
+    var(--grain),
+    radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--stamp-ink) 10%, transparent), transparent 70%);
+}
+
+.stamp__value {
+  justify-self: end;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: calc(var(--stamp-w, 86px) * 0.13);
+  line-height: 1;
+}
+.stamp__motif {
+  width: 82%;
+}
+.stamp__country {
+  font-family: var(--font-sans);
+  font-size: calc(var(--stamp-w, 86px) * 0.075);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1;
+}

@@ -1,0 +1,149 @@
+.jmap {
+  width: 100%;
+}
+.jmap__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.jmap__land {
+  fill: #eadfc8;
+  stroke: rgba(169, 133, 82, 0.55);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+}
+.jmap__land--focus {
+  fill: var(--tint);
+  stroke: var(--tint);
+  stroke-width: 1.1;
+  stroke-opacity: 0.8;
+}
+.jmap__route {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-opacity: 0.75;
+}
+.jmap__route--wedding {
+  stroke: var(--gold);
+  stroke-width: 1.8;
+  stroke-opacity: 1;
+}
+.jmap__plane path {
+  fill: #fbf7ef;
+  stroke: var(--forest);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.jmap__plane .jmap__plane-fold {
+  fill: none;
+}
+.jmap__pulse {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pin-pulse 2.6s var(--ease-out) infinite;
+}
+.jmap__pulse--late {
+  animation-delay: 1.3s;
+}
+@keyframes pin-pulse {
+  0% { transform: scale(0.4); opacity: 0.9; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.jmap__rings circle {
+  fill: none;
+  stroke: #b8914f;
+  stroke-width: 1.6;
+}
+.jmap__gem {
+  fill: #fff3cf;
+  stroke: #b8914f;
+  stroke-width: 0.6;
+}
+.jmap__stage {
+  position: relative;
+  margin-bottom: 4.2rem; /* room for the România tag that hangs below the map */
+}
+
+/* caption tags */
+.jmap__tag {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.55rem 0.7rem 0.6rem;
+  text-align: left;
+  background: rgba(252, 248, 240, 0.92);
+  border: 1px solid rgba(169, 133, 82, 0.45);
+  box-shadow: 0 6px 16px -10px rgba(60, 45, 20, 0.45);
+  backdrop-filter: blur(2px);
+}
+.jmap__tag::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 0.5px solid rgba(169, 133, 82, 0.25);
+  pointer-events: none;
+}
+.jmap__tag-name {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.jmap__tag-name i {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tint);
+}
+.jmap__tag-note {
+  font-size: 1rem;
+  line-height: 1.25;
+  color: var(--ink-soft);
+}
+.jmap__tag--nl { left: 1%; top: 3%; width: 34%; }
+.jmap__tag--de { left: 0; top: 50%; width: 28%; }
+.jmap__tag--ro { right: 1%; top: 92%; width: 42%; }
+.jmap__tag--ro {
+  text-align: right;
+}
+.jmap__tag--ro .jmap__tag-name {
+  justify-content: flex-end;
+}
+
+@media (max-width: 560px) {
+  /* phones: a slightly wider map, NL caption above it, RO caption below it */
+  .jmap__stage {
+    margin: 3.4rem -0.8rem 4.8rem;
+  }
+  .jmap__tag--nl { left: 2%; top: -14%; width: 44%; }
+  .jmap__tag--de { left: 0; top: 55%; width: 32%; }
+  .jmap__tag--ro { right: 1%; top: 90%; width: 56%; }
+  .jmap__tag {
+    padding: 0.35rem 0.45rem 0.4rem;
+  }
+  .jmap__tag-name {
+    font-size: 0.48rem;
+    letter-spacing: 0.12em;
+    gap: 0.3rem;
+  }
+  .jmap__tag-name i {
+    width: 5px;
+    height: 5px;
+  }
+  .jmap__tag-note {
+    font-size: 0.76rem;
+    line-height: 1.2;
+  }
+}
